@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,6 +44,15 @@ public class BoardController {
 		board.setBoardWriter(req.getParameter("writer"));
 		
 		mBoardService.boardRegister(board);
-		return "boardList";
+		return "redirect:/boards/"+board.getBoardId();
 	}
+	
+	// Board Detail 게시판 글 읽기
+	@RequestMapping(value="/boards/{boardId}", method=RequestMethod.GET)
+	private String boardRegister(@PathVariable int boardId, Model model) throws Exception {
+		model.addAttribute("board", mBoardService.boardDetail(boardId));
+		return "boardDetail";
+	}
+		
+		
 }

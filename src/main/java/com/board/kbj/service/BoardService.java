@@ -23,4 +23,8 @@ public class BoardService {
 		return mBoardMapper.boardRegister(board);
 	}
 	
+	public BoardVO boardDetail(int boardId) throws Exception {
+		return mBoardMapper.boardDetail(boardId);
+	}
+	
 }

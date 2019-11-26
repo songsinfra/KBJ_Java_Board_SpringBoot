@@ -19,4 +19,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES( #{boardTitle},#{boardContent}, NOW(), #{boardWriter})
 	</insert>
 
+	<select id="boardDetail" parameterType="int" resultType="com.board.kbj.domain.BoardVO">
+		SELECT
+		*
+		FROM Boards
+		WHERE boardId = #{boardId}
+	</select>
+
 </mapper>
