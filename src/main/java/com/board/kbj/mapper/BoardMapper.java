@@ -13,4 +13,7 @@ public interface BoardMapper {
 	// Board List 가져오기
 	List<BoardVO> boardList() throws Exception;
 	
+	// Board Register 글 등록하기
+	int boardRegister(BoardVO board) throws Exception;
+	
 }

@@ -12,5 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY boardId DESC
 	</select>
 
+	<insert id="boardRegister" useGeneratedKeys="true" keyProperty="boardId" 
+		parameterType="com.board.kbj.domain.BoardVO">
+		INSERT INTO
+		Boards (boardTitle, boardContent, boardWriteTime, boardWriter)
+		VALUES( #{boardTitle},#{boardContent}, NOW(), #{boardWriter})
+	</insert>
 
 </mapper>

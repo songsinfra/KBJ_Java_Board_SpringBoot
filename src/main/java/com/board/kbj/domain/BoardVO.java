@@ -6,7 +6,14 @@ public class BoardVO {
 	private String boardTitle; // 글 제목
 	private String boardContent; // 글 내용
 	private String boardWriteTime; // 글 작성 날짜
+	private String boardWriter; //글 작성자
 	
+	public String getBoardWriter() {
+		return boardWriter;
+	}
+	public void setBoardWriter(String boardWriter) {
+		this.boardWriter = boardWriter;
+	}
 	public int getBoardId() {
 		return boardId;
 	}

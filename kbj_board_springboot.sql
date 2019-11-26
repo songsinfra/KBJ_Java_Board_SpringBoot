@@ -8,12 +8,15 @@ grant all privileges on kbj_springboot_board_database.* to kbj_springboot_board;
 
 
 -- 여기부터는 kbj_springboot_board 계정으로 실행
-CREATE TABLE Products (
-	productId INT NOT NULL AUTO_INCREMENT,
-	productName VARCHAR(255) ,
-	productPrice float(10,2),
-	productGuide text,
-	productQuantity INT,
-    productImageSrc VARCHAR(255),
-	PRIMARY KEY (productId)
+CREATE TABLE Boards (
+	boardId INT NOT NULL AUTO_INCREMENT,
+	boardTitle VARCHAR(255) ,
+	boardContent text,
+    boardWriteTime datetime,
+    boardWriter VARCHAR(255),
+	PRIMARY KEY (boardId)
 );
+
+drop table Boards;
+
+select * from baords;

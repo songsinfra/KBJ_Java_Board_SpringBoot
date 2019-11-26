@@ -19,4 +19,8 @@ public class BoardService {
 		return mBoardMapper.boardList();
 	}
 	
+	public int boardRegister(BoardVO board) throws Exception {
+		return mBoardMapper.boardRegister(board);
+	}
+	
 }

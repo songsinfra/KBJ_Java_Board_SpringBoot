@@ -10,6 +10,9 @@
 
 <h1> 글 목록 보여주기</h1>
 ${boardList}
+
+
+<a href="/boards/register"> 글 작성 페이지 </a>
 </body>
 </html>
 
