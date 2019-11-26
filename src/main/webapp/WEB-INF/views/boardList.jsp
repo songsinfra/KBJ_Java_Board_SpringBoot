@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Board List Page</title>
 </head>
 <body>
 
-	<h2>TEST!!!!</h2>
-
+<h1> 글 목록 보여주기</h1>
+${boardList}
 </body>
 </html>
+
+
