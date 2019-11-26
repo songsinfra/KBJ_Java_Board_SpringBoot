@@ -20,6 +20,18 @@
 	</properties>
 
 	<dependencies>
+		<!-- JSP와 Servlet 설정 -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>8.0.36</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
 		<!-- 개발 환경에서 저장 할 때마다 재시작하기 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -28,8 +40,6 @@
 			<optional>true</optional>
 		</dependency>
 
-
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
