@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.board.kbj.mapper.FileMapper">
+
+	<select id="fileList" resultType="com.board.kbj.domain.FileVO">
+		SELECT
+		*
+		FROM Files
+	</select>
+
+	<insert id="fileRegister" parameterType="java.util.List">
+		INSERT INTO
+		FILES (originalFileName, savedFileName, boardId)
+		VALUES
+		<foreach collection="list" item="file" separator="," >
+			( #{file.originalFileName}, #{file.savedFileName}, #{file.boardId})
+		</foreach>
+	</insert>
+
+	<select id="fileDetail" parameterType="int" resultType="com.board.kbj.domain.FileVO">
+		SELECT
+		*
+		FROM Files
+		WHERE boardId = #{boardId}
+	</select>
+
+</mapper>

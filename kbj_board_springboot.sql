@@ -16,7 +16,16 @@ CREATE TABLE Boards (
     boardWriter VARCHAR(255),
 	PRIMARY KEY (boardId)
 );
-
 drop table Boards;
-
 select * from baords;
+
+
+CREATE TABLE Files (
+	fileId INT NOT NULL AUTO_INCREMENT,
+	originalFileName text,
+	savedFileName text,
+	boardId int,
+	PRIMARY KEY (fileId)
+);
+
+select * from files;
