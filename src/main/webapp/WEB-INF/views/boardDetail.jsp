@@ -47,7 +47,7 @@
         	<c:when test="${fn:length(fileList) !=0}"> 
 			     <ul>
 			      	<c:forEach var="file" items="${fileList}">
-			      		<li><a href=""> ${file.originalFileName}</a> </li>
+			      		<li><a href="/files/${file.fileId}/download" target="_blank"> ${file.originalFileName}</a> </li>
 			      	</c:forEach>
 			     </ul>        	
         	</c:when>

@@ -25,8 +25,8 @@ public class FileService {
 		return mFileMapper.fileRegister(fileList);
 	}
 	
-	public FileVO fileDetail(int boardId) throws Exception {
-		return mFileMapper.fileDetail(boardId);
+	public FileVO fileDetail(int fileId) throws Exception {
+		return mFileMapper.fileDetail(fileId);
 	}
 	
 }

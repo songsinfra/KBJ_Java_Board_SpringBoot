@@ -88,7 +88,7 @@ public class BoardController {
 	
 	// Board Detail 게시판 글 읽기
 	@RequestMapping(value="/boards/{boardId}", method=RequestMethod.GET)
-	private String boardRegister(@PathVariable int boardId, Model model) throws Exception {
+	private String boardDetail(@PathVariable int boardId, Model model) throws Exception {
 		model.addAttribute("board", mBoardService.boardDetail(boardId)); // 글 정보
 		model.addAttribute("fileList", mFileService.fileList(boardId)); // 글에 속한 첨부 파일 리스트
 		return "boardDetail";

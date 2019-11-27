@@ -26,7 +26,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT
 		*
 		FROM Files
-		WHERE boardId = #{boardId}
+		WHERE fileId = #{fileId}
 	</select>
-
 </mapper>
