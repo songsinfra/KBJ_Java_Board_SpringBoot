@@ -3,7 +3,6 @@ package com.board.kbj.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -91,9 +89,9 @@ public class BoardController {
 	// Board Detail 게시판 글 읽기
 	@RequestMapping(value="/boards/{boardId}", method=RequestMethod.GET)
 	private String boardRegister(@PathVariable int boardId, Model model) throws Exception {
-		model.addAttribute("board", mBoardService.boardDetail(boardId));
+		model.addAttribute("board", mBoardService.boardDetail(boardId)); // 글 정보
+		model.addAttribute("fileList", mFileService.fileList(boardId)); // 글에 속한 첨부 파일 리스트
 		return "boardDetail";
 	}
-		
 		
 }

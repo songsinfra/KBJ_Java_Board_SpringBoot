@@ -22,7 +22,7 @@
             <th>작성 날짜</th>
         </tr>
           <c:forEach var="list" items="${boardList}">
-              <tr onclick="location.href='/boards/1'" style="cursor: pointer">
+              <tr onclick="location.href='/boards/${list.boardId}'" style="cursor: pointer">
                  <td>${list.boardId}</td>
                  <td>${list.boardWriter}</td>
                  <td>${list.boardTitle}</td>

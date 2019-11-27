@@ -9,6 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT
 		*
 		FROM Files
+		WHERE 
+			Files.boardId = #{boardId}
 	</select>
 
 	<insert id="fileRegister" parameterType="java.util.List">

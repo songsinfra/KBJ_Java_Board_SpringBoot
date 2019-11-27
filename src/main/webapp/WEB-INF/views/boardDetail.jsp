@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,8 +16,10 @@
  
 <div class="container">
 	<button class="btn btn-primary" onclick="location.href='/'">글 리스트</button>
-	
-    <form action="/insertProc" method="post">
+	<br />
+	<br />
+	<br />
+		
       <div class="form-group">
         <label>제목</label>
         <p>${board.boardTitle}</p>
@@ -31,8 +36,27 @@
         <label>내용</label>
         <p>${board.boardContent}</p>
       </div>
-      <button type="submit" class="btn btn-primary">작성</button>
-    </form>
+      
+      <div class="form-group">
+        <label>첨부 파일</label>
+        
+        <c:choose>
+        	<c:when test="${fn:length(fileList) ==0}">
+	      		<li> 첨부 파일 X </li>
+        	</c:when>
+        	<c:when test="${fn:length(fileList) !=0}"> 
+			     <ul>
+			      	<c:forEach var="file" items="${fileList}">
+			      		<li><a href=""> ${file.originalFileName}</a> </li>
+			      	</c:forEach>
+			     </ul>        	
+        	</c:when>
+        </c:choose>
+        
+        
+        
+
+      </div>
 </div>
  
  
