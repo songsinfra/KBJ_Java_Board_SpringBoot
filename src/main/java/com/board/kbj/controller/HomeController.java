@@ -1,11 +1,8 @@
 package com.board.kbj.controller;
 
-import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.board.kbj.domain.BoardVO;
 
 @Controller
 public class HomeController {

@@ -30,6 +30,7 @@
       </div>
       
       <button type="submit" class="btn btn-primary">글 작성</button>
+      <a class="btn btn-primary" href="/">글 리스트</a>
     </form>
 </div>
 <%@ include file="./partials/bootstrap.jsp" %>
