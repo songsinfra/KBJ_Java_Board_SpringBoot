@@ -12,6 +12,8 @@
 <h2> 게시글 상세 </h2>
  
 <div class="container">
+	<button class="btn btn-primary" onclick="location.href='/'">글 리스트</button>
+	
     <form action="/insertProc" method="post">
       <div class="form-group">
         <label>제목</label>
