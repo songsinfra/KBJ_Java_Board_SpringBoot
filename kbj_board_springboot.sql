@@ -27,9 +27,10 @@ CREATE TABLE Users (
 	userId INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(255) ,
 	password VARCHAR(255) ,
+    salt VARCHAR(255),
 	PRIMARY KEY (userId)
 );
-select * from baords;
+select * from boards;
 select * from files;
 select * from users;
 
@@ -37,12 +38,6 @@ drop table Boards;
 drop table Files;
 drop table Users;
 
-SELECT
-		*
-		FROM Files
-        where files.boardId = 20;
         
-SELECT
-*
-FROM Files
-WHERE fileId = 1;
+select * from files;
+delete from files where fileid=1 or fileid=2;

@@ -25,5 +25,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM Boards
 		WHERE boardId = #{boardId}
 	</select>
+	
+	<delete id="boardDelete" parameterType="int">
+		DELETE
+		FROM Boards
+		WHERE boardId = #{boardId}
+	</delete>
 
 </mapper>

@@ -28,4 +28,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM Files
 		WHERE fileId = #{fileId}
 	</select>
+	
+	<delete id="fileDelete" parameterType="java.util.List">
+		DELETE FROM
+		FILES
+		WHERE 
+		<foreach collection="list" item="file" separator="or" >
+			fileId = #{file.fileId}
+		</foreach>
+	</delete>
 </mapper>

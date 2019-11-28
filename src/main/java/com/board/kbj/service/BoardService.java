@@ -26,5 +26,9 @@ public class BoardService {
 	public BoardVO boardDetail(int boardId) throws Exception {
 		return mBoardMapper.boardDetail(boardId);
 	}
+
+	public void boardDelete(int boardId) {
+		mBoardMapper.boardDelete(boardId);
+	}
 	
 }

@@ -18,4 +18,7 @@ public interface BoardMapper {
 	
 	//Board Detail 글 읽기
 	BoardVO boardDetail(int boardId) throws Exception;
+
+	// Board Delete 글 삭제
+	void boardDelete(int boardId);
 }

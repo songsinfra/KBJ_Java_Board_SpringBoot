@@ -26,5 +26,9 @@ public class FileService {
 	public FileVO fileDetail(int fileId) throws Exception {
 		return mFileMapper.fileDetail(fileId);
 	}
+
+	public void fileDelete(List<FileVO> fileList) {
+		mFileMapper.fileDelete(fileList);
+	}
 	
 }

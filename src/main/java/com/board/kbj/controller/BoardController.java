@@ -93,5 +93,32 @@ public class BoardController {
 		model.addAttribute("fileList", mFileService.fileList(boardId)); // 글에 속한 첨부 파일 리스트
 		return "boardDetail";
 	}
+
+	// Board Delete 게시판 글 삭제
+	@RequestMapping(value="/boards/{boardId}/delete", method=RequestMethod.POST)
+	private String boardDelete(HttpServletRequest req, @PathVariable int boardId) throws Exception {
+		// 1. 로그인 확인
+		if(req.getSession().getAttribute("loginUser") == null) {
+			return "redirect:/";
+		}
+		//2. 글 확인
+		BoardVO board = mBoardService.boardDetail(boardId);
 		
+		//3. 글 삭제 + 연결된 파일 삭제
+		if( board.getBoardId()>0) {
+			mBoardService.boardDelete(boardId);// DB에 저장된 글 삭제
+			
+			// 서버에 저장된 실제 파일 삭제
+			List<FileVO> fileList = mFileService.fileList(boardId);
+			for(int a=0; a<fileList.size(); a++) {
+				File file = new File(System.getProperty("user.dir")+ uploadPath+ fileList.get(a).getSavedFileName());
+				if(file.exists())
+					file.delete(); // 파일 유무 확인 후 삭제
+			}
+			if(fileList.size()>0)
+				mFileService.fileDelete(fileList); // 파일 정보 DB에서 삭제				
+		}
+		return "redirect:/";
+	}	
+
 }

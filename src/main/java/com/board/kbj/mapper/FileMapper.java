@@ -18,4 +18,7 @@ public interface FileMapper {
 	
 	// 특정 파일 가져오기
 	FileVO fileDetail(int fileId) throws Exception;
+
+	// 파일 목록 삭제
+	void fileDelete(List<FileVO> fileList);
 }

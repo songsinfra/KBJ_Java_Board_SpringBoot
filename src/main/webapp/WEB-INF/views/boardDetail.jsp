@@ -17,6 +17,12 @@
 	<h2> 게시글 상세 </h2>
 
 	<a class="btn btn-primary" href="/">글 리스트</a>
+	<c:if test="${loginUser != null}">
+		<form style="display:inline-block" action="/boards/${board.boardId}/delete" method="POST" id=deleteForm>
+			<input type="button" class="btn btn-primary" onclick="requestDeleteBoard()" value="삭제" />
+		</form>
+	</c:if>
+	
 	<br />
 	<br />
 	<br />
@@ -53,13 +59,17 @@
 			     </ul>        	
         	</c:when>
         </c:choose>
-        
-        
-        
-
       </div>
 </div>
- 
+
+<script type="text/javascript">
+function requestDeleteBoard() {
+	if(confirm('정말 삭제하시겠습니까?')){
+		document.getElementById('deleteForm').submit();
+	}
+}
+</script>
+
 </body>
 </html>
 
