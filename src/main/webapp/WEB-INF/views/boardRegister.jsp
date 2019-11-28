@@ -17,7 +17,7 @@
     <form action="/boards/register" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="title">제목</label>
-        <input type="text" class="form-control" name="title" placeholder="제목" value="Default Title">
+        <input type="text" class="form-control" name="title" id="title" placeholder="제목">
       </div>
       <div class="form-group">
         <label for="writer">작성자</label>
@@ -48,9 +48,17 @@
 
 <script type="text/javascript">
 
-	// 페이지 로딩 후 username input에 포커스 집중
 	window.onload  = function() {
-		
+		var today = new Date();   
+		var year = today.getFullYear(); 
+		var month = today.getMonth() + 1;
+		var date = today.getDate();
+		var hours = today.getHours();
+		var minutes = today.getMinutes();
+		var seconds = today.getSeconds();
+
+		var currentTime = year+"."+month+"."+date+" - "+hours+":"+minutes+":"+seconds;
+		document.getElementById("title").value = 'Default Title at ' + currentTime; 
 	}
 
 	//input file 태그의 규칙 확인
