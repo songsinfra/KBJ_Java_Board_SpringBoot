@@ -20,5 +20,5 @@ public interface FileMapper {
 	FileVO fileDetail(int fileId) throws Exception;
 
 	// 파일 목록 삭제
-	void fileDelete(List<FileVO> fileList);
+	void fileDelete(List<FileVO> fileList) throws Exception;
 }

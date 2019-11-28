@@ -18,6 +18,7 @@ public interface UserMapper {
 	// User Login 회원 로그인 하기
 	String userLogin(UserVO user) throws Exception;
 
-	
-	
+	// User Join 중복 확인
+	UserVO userDuplicateCheck(String username) throws Exception;
+
 }

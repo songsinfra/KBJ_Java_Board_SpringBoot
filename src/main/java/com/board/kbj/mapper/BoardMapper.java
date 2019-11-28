@@ -20,5 +20,5 @@ public interface BoardMapper {
 	BoardVO boardDetail(int boardId) throws Exception;
 
 	// Board Delete 글 삭제
-	void boardDelete(int boardId);
+	void boardDelete(int boardId) throws Exception;
 }

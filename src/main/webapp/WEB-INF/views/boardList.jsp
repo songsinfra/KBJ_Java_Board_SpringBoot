@@ -11,7 +11,7 @@
 <body>
  
 <jsp:include page="./partials/header.jsp"/> 
- 
+
 <div class="container">
 	<button class="btn btn-primary" onclick="location.href='/boards/register'">글쓰기</button>
     <table class="table table-hover">

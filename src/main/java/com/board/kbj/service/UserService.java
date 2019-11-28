@@ -24,5 +24,9 @@ public class UserService {
 	public String userLogin(UserVO user) throws Exception {
 		return mUserMapper.userLogin(user);
 	}
+
+	public UserVO userDuplicateCheck(String username) throws Exception  {
+		return mUserMapper.userDuplicateCheck(username);
+	}
 	
 }
