@@ -16,5 +16,13 @@ public class UserService {
 	public int userRegister(UserVO user) throws Exception {
 		return mUserMapper.userRegister(user);
 	}
+
+	public String userGetSalt(String username) throws Exception {
+		return mUserMapper.userGetSalt(username);
+	}
+	
+	public String userLogin(UserVO user) throws Exception {
+		return mUserMapper.userLogin(user);
+	}
 	
 }

@@ -27,9 +27,9 @@ public class UserController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	private String boardRegister(HttpServletRequest req ) throws Exception {
 
-		String username = req.getParameter("username"); 
-		String password = req.getParameter("password");
-		String passwordConfirm = req.getParameter("passwordConfirm");
+		String username = req.getParameter("username").trim(); 
+		String password = req.getParameter("password").trim();
+		String passwordConfirm = req.getParameter("passwordConfirm").trim();
 		
 		// 입력받은 패스워드 2개가 일치하지 않으면 가입 페이지로 되돌아간다
 		if(!password.equals(passwordConfirm))
@@ -55,8 +55,33 @@ public class UserController {
 	// User Login 로그인 하기
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	private String userLogin(HttpServletRequest req ) throws Exception {
+		String username = req.getParameter("username").trim(); 
+		String password = req.getParameter("password").trim();
 		
-		return "redirect:/";
+		if(password == null || username == null )
+			return "redirect:/";
+		
+		// 비밀번호 암호화 해제를 위해 입력된 Username이 가지고 있는 Salt를 먼저 확인
+		String salt = mUserService.userGetSalt(username);
+		if(salt == null)
+			return "redirect:/"; // 가입된 회원 아님
+		// 비밀번호 암호화 해제
+		String hashedPassword = PasswordSecurity.getEncrypt(password, salt );
+		
+		// DB에서 로그인 정보 확인
+		UserVO user = new UserVO();
+		user.setUsername(username);
+		user.setPassword(hashedPassword); // 암호화 된 비밀번호
+		String loginRes = mUserService.userLogin(user);
+		
+		
+		// 로그인 성공시 세션 저장
+		if(loginRes != null) {
+			req.getSession().setAttribute("loginUser", username);
+			req.getSession().setMaxInactiveInterval(60*60*2); //2시간 로그인 지속
+			return "loginResult"; // 로그인 성공
+		}
+		return "redirect:/"; // 비밀번호 불일치로 로그인 실패
 	}
 	
 }

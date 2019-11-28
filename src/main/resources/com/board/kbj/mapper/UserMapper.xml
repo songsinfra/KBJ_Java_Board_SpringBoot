@@ -11,10 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES ( #{username}, #{password}, #{salt})
 	</insert>
 	
-	<insert id="userLogin" parameterType="com.board.kbj.domain.UserVO">
+	<select id="userGetSalt" parameterType="string" resultType="string">
+		SELECT salt
+		FROM Users
+		WHERE username = #{username}
+	</select>
+	
+	<select id="userLogin" parameterType="com.board.kbj.domain.UserVO" resultType="string">
 		SELECT username
 		FROM Users
-		WHERE username = #{username} and password = #{password}
-	</insert>
+		WHERE password = #{password}
+	</select>
 
 </mapper>
