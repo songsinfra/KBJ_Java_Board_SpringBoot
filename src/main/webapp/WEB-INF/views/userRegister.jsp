@@ -11,6 +11,8 @@
 <div class="container">
     <form action="/join" method="post" id="joinForm">
       <h1> User Register - 회원가입 페이지</h1>
+      
+      <h3 style="color:red" >${message}</h3>
       <div class="form-group">
         <label for="writer">Username</label>
         <input required type="text" class="form-control" name="username" id="username" placeholder="Username" onkeypress="return runByEnter(event)">

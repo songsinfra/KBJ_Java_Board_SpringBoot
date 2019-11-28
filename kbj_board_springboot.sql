@@ -25,7 +25,7 @@ CREATE TABLE Files (
 );
 CREATE TABLE Users (
 	userId INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(255) ,
+	username VARCHAR(255) unique ,
 	password VARCHAR(255) ,
     salt VARCHAR(255),
 	PRIMARY KEY (userId)

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,9 +38,12 @@ public class BoardController {
 	
 	// Board List 게시판 글 목록 보여주기
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	private String boardList(Model model) throws Exception {
+	private String boardList(@RequestParam(required = false) String message, Model model) throws Exception {
 		List<BoardVO> boardList = mBoardService.boardList();
 		model.addAttribute("boardList", boardList);
+		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
+		if(message != null)
+			model.addAttribute("message", message);
 		return "boardList";
 	}
 	
