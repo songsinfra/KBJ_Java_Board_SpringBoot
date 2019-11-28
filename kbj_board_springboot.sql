@@ -16,10 +16,6 @@ CREATE TABLE Boards (
     boardWriter VARCHAR(255),
 	PRIMARY KEY (boardId)
 );
-drop table Boards;
-select * from baords;
-
-
 CREATE TABLE Files (
 	fileId INT NOT NULL AUTO_INCREMENT,
 	originalFileName text,
@@ -27,5 +23,26 @@ CREATE TABLE Files (
 	boardId int,
 	PRIMARY KEY (fileId)
 );
-
+CREATE TABLE Users (
+	userId INT NOT NULL AUTO_INCREMENT,
+	username VARCHAR(255) ,
+	password VARCHAR(255) ,
+	PRIMARY KEY (userId)
+);
+select * from baords;
 select * from files;
+select * from users;
+
+drop table Boards;
+drop table Files;
+drop table Users;
+
+SELECT
+		*
+		FROM Files
+        where files.boardId = 20;
+        
+SELECT
+*
+FROM Files
+WHERE fileId = 1;

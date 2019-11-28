@@ -6,9 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.board.kbj.domain.BoardVO;
 import com.board.kbj.domain.FileVO;
-import com.board.kbj.mapper.BoardMapper;
 import com.board.kbj.mapper.FileMapper;
 
 @Service("com.board.kbj.service.FileService")

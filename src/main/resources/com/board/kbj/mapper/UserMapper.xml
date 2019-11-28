@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.board.kbj.mapper.UserMapper">
+
+	<insert id="userRegister" parameterType="com.board.kbj.domain.UserVO">
+		INSERT INTO
+		Users (username, password, salt)
+		VALUES ( #{username}, #{password}, #{salt})
+	</insert>
+	
+	<insert id="userLogin" parameterType="com.board.kbj.domain.UserVO">
+		SELECT username
+		FROM Users
+		WHERE username = #{username} and password = #{password}
+	</insert>
+
+</mapper>

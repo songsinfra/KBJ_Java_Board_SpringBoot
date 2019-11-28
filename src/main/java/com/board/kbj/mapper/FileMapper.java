@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.board.kbj.domain.BoardVO;
 import com.board.kbj.domain.FileVO;
 
 

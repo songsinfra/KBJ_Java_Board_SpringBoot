@@ -10,7 +10,7 @@
 </head>
 <body>
  
-<h2> 게시글 목록 </h2>
+<jsp:include page="./partials/header.jsp"/> 
  
 <div class="container">
 	<button class="btn btn-primary" onclick="location.href='/boards/register'">글쓰기</button>
