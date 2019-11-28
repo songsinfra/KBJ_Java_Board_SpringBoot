@@ -8,6 +8,7 @@
 <body>
  
 <script type="text/javascript">
+	alert('Login Success !!')
 	window.location.href="/"
 </script>
 

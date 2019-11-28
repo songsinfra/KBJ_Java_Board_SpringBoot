@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Detail</title>
+<title>Board Detail</title>
 </head>
 <body>
  
