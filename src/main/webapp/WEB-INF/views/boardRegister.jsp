@@ -21,17 +21,17 @@
       </div>
       <div class="form-group">
         <label for="writer">작성자</label>
-<c:choose>
-	<c:when test="${loginUser == null}"> 
-		<input type="text" class="form-control" name="writer" placeholder="작성자" value="Default Writer">
-	</c:when>
-	<c:when test="${loginUser != null}">
-		<input type="text" class="form-control" name="writer" placeholder="작성자" value='${loginUser}' readonly>
-	</c:when>
-</c:choose>
         
-        
+		<c:choose>
+			<c:when test="${loginUser == null}"> 
+				<input type="text" class="form-control" name="writer" placeholder="작성자" value="Default Writer">
+			</c:when>
+			<c:when test="${loginUser != null}">
+				<input type="text" class="form-control" name="writer" placeholder="작성자" value='${loginUser}' readonly>
+			</c:when>
+		</c:choose>
       </div>
+      
       <div class="form-group">
         <label for=content">내용</label>
         <textarea class="form-control" id="content" name="content" rows="3">Default Content 입니다. Default Content 입니다. Default Content 입니다.</textarea>

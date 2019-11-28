@@ -36,7 +36,7 @@ public class BoardController {
 	String uploadPath;
 	
 	// Board List 게시판 글 목록 보여주기
-	@RequestMapping(value="/boardList", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	private String boardList(Model model) throws Exception {
 		List<BoardVO> boardList = mBoardService.boardList();
 		model.addAttribute("boardList", boardList);

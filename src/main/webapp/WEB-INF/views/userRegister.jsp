@@ -58,6 +58,8 @@
 	}
 </script>
 
+<%@ include file="./partials/bootstrap.jsp" %>
+
 </body>
 </html>
 
