@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="fileRegister" parameterType="java.util.List">
 		INSERT INTO
-		FILES (originalFileName, savedFileName, boardId)
+		Files (originalFileName, savedFileName, boardId)
 		VALUES
 		<foreach collection="list" item="file" separator="," >
 			( #{file.originalFileName}, #{file.savedFileName}, #{file.boardId})
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<delete id="fileDelete" parameterType="java.util.List">
 		DELETE FROM
-		FILES
+		Files
 		WHERE 
 		<foreach collection="list" item="file" separator="or" >
 			fileId = #{file.fileId}

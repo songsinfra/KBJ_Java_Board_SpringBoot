@@ -1,13 +1,13 @@
 -- DB 초기화 Root 계정으로 실행
-drop user kbj_springboot_board;
-drop schema kbj_springboot_board_database;
+drop user kbj_board_springboot;
+drop schema kbj_board_springboot;
 
-create user kbj_springboot_board identified by 'kbj_springboot_board';
-create schema kbj_springboot_board_database;
-grant all privileges on kbj_springboot_board_database.* to kbj_springboot_board;
+create user kbj_board_springboot identified by 'TestTest1234!@';
+create schema kbj_board_springboot_database;
+grant all privileges on kbj_board_springboot_database.* to kbj_board_springboot;
 
 
--- 여기부터는 kbj_springboot_board 계정으로 실행
+-- 여기부터는 kbj_board_springboot 계정으로 실행
 CREATE TABLE Boards (
 	boardId INT NOT NULL AUTO_INCREMENT,
 	boardTitle VARCHAR(255) ,
