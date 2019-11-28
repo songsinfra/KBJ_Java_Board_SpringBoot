@@ -63,11 +63,17 @@ public class BoardController {
 		board.setBoardContent(req.getParameter("content"));
 		board.setBoardWriter(req.getParameter("writer"));
 		mBoardService.boardRegister(board); //DB에 글 저장
+
+		// 파일 저장소 위치 존재 확인 후 없으면 생성.
+		File folder = new File(System.getProperty("user.dir")+ uploadPath);
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
 		
 		//2. 먼저 파일을 저장하고, 저장된 파일 목록을 생성
 		List<FileVO> fileList = new ArrayList<FileVO>();
 		for(int a=0; a<files.length; a++) {
-			// 파일 유무 확인 후, 있으면 파일 저장
+			// 첨부 파일 유무 확인 후, 있으면 파일 저장
 			if( files[a].isEmpty())
 				continue;
 			String originalFileName = files[a].getOriginalFilename(); //파일의 원래 이름
