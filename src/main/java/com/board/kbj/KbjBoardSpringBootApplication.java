@@ -8,6 +8,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -16,7 +17,7 @@ import com.board.kbj.utility.InterceptHandler;
 
 @SpringBootApplication
 @MapperScan(value= {"com.board.kbj.mapper"})
-public class KbjBoardSpringBootApplication implements WebMvcConfigurer {
+public class KbjBoardSpringBootApplication implements WebMvcConfigurer, ErrorController  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KbjBoardSpringBootApplication.class, args);
@@ -38,5 +39,10 @@ public class KbjBoardSpringBootApplication implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(interceptHandler); // addPathPattern과 excludePathPattern을 사용해서 인터셉터를 설정/해제 가능
     }
+
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
 
 }
