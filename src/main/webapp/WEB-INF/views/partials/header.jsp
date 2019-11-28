@@ -11,13 +11,13 @@
 			<div class="form-group" style="display:inline-block;">
 				<label for="title">Username: </label> 
 				<div style="display:inline-block;" >
-					<input  type="text" class="form-control" name="username" placeholder="Username" >
+					<input required type="text" class="form-control" name="username" placeholder="Username" >
 				</div>
 			</div>
 			<div class="form-group" style="display:inline-block;">
 				<label for="writer">Password: </label>
 				<div style="display:inline-block;" > 
-					<input style="display:inline-block;" type="password" class="form-control" name="password" placeholder="Password">
+					<input required style="display:inline-block;" type="password" class="form-control" name="password" placeholder="Password">
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary"> Login </button>
@@ -25,7 +25,10 @@
 		</form>
 	</c:when>
 	<c:when test="${loginUser != null}">
-		<h1>로그인 By ${loginUser} </h1>
+		<div class="form-group" style="display:inline-block;">
+			<label><h2> 로그인 By ${loginUser} </h2></label>
+			<button class="btn btn-primary" onclick="location.href='/logout'">Logout ?</button>
+		</div>
 	</c:when>
 </c:choose>
 

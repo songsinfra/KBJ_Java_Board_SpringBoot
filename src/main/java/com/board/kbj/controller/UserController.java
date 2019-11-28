@@ -84,4 +84,12 @@ public class UserController {
 		return "redirect:/"; // 비밀번호 불일치로 로그인 실패
 	}
 	
+	// User Logout 로그아웃 하기
+	@RequestMapping(value="/logout")
+	private String userLogout(HttpServletRequest req ) throws Exception {
+		// 로그아웃
+		req.getSession().removeAttribute("loginUser");
+		return "redirect:/"; // 비밀번호 불일치로 로그인 실패
+	}
+	
 }
