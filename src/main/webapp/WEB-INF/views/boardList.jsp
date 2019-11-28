@@ -33,8 +33,6 @@
     </table>
 </div>
  
- 
-<%@ include file="./partials/bootstrap.jsp" %>
 </body>
 </html>
 

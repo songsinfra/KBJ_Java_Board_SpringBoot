@@ -28,7 +28,6 @@
       <a class="btn btn-primary" href="/">Back</a>
     </form>
 </div>
-<%@ include file="./partials/bootstrap.jsp" %>
 
 <script type="text/javascript">
 

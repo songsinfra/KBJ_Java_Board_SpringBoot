@@ -11,10 +11,11 @@
 </head>
 <body>
  
- 
-<h2> 게시글 상세 </h2>
+<jsp:include page="./partials/header.jsp"/>
  
 <div class="container">
+	<h2> 게시글 상세 </h2>
+
 	<a class="btn btn-primary" href="/">글 리스트</a>
 	<br />
 	<br />
@@ -59,8 +60,6 @@
       </div>
 </div>
  
- 
-<%@ include file="./partials/bootstrap.jsp" %>
 </body>
 </html>
 

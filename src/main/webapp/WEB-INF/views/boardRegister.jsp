@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,9 +9,11 @@
 </head>
 <body>
  
-<h2> 게시글 작성 </h2>
+<jsp:include page="./partials/header.jsp"/> 
  
 <div class="container">
+	<h2> 게시글 작성 </h2>
+	
     <form action="/boards/register" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="title">제목</label>
@@ -18,7 +21,16 @@
       </div>
       <div class="form-group">
         <label for="writer">작성자</label>
-        <input type="text" class="form-control" name="writer" placeholder="작성자" value="Default Writer">
+<c:choose>
+	<c:when test="${loginUser == null}"> 
+		<input type="text" class="form-control" name="writer" placeholder="작성자" value="Default Writer">
+	</c:when>
+	<c:when test="${loginUser != null}">
+		<input type="text" class="form-control" name="writer" placeholder="작성자" value='${loginUser}' readonly>
+	</c:when>
+</c:choose>
+        
+        
       </div>
       <div class="form-group">
         <label for=content">내용</label>
@@ -33,9 +45,13 @@
       <a class="btn btn-primary" href="/">글 리스트</a>
     </form>
 </div>
-<%@ include file="./partials/bootstrap.jsp" %>
 
 <script type="text/javascript">
+
+	// 페이지 로딩 후 username input에 포커스 집중
+	window.onload  = function() {
+		
+	}
 
 	//input file 태그의 규칙 확인
 	document.getElementById("files").onchange = function() {
