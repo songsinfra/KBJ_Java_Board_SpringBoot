@@ -15,8 +15,12 @@ public class BoardService {
 	@Resource(name = "com.board.kbj.mapper.BoardMapper")
 	BoardMapper mBoardMapper;
 	
-	public List<BoardVO> boardList() throws Exception {
-		return mBoardMapper.boardList();
+	public List<BoardVO> boardList(int startBoardNum, int boardCountInPage) throws Exception {
+		return mBoardMapper.boardList(startBoardNum, boardCountInPage);
+	}
+	
+	public int boardTotalCount() throws Exception{
+		return mBoardMapper.boardTotalCount();
 	}
 	
 	public int boardRegister(BoardVO board) throws Exception {

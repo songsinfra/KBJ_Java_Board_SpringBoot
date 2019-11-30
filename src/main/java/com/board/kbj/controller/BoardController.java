@@ -22,6 +22,8 @@ import com.board.kbj.domain.BoardVO;
 import com.board.kbj.domain.FileVO;
 import com.board.kbj.service.BoardService;
 import com.board.kbj.service.FileService;
+import com.board.kbj.utility.CommonUtility;
+import com.mysql.cj.util.StringUtils;
 
 @Controller
 public class BoardController {
@@ -36,11 +38,21 @@ public class BoardController {
 	@Value("${file.upload.path}")
 	String uploadPath;
 	
+	int boardCountInPage = 5; // 한 페이지에 보여줄 Board의 글 개수 
+	
 	// Board List 게시판 글 목록 보여주기
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	private String boardList(@RequestParam(required = false) String message, Model model) throws Exception {
-		List<BoardVO> boardList = mBoardService.boardList();
+	private String boardList(@RequestParam(required = false) String message, @RequestParam(required = false) String pageNum, Model model) throws Exception {
+
+		int numberPageNum = CommonUtility.getPageNumber(pageNum); // 전달 받은 pageNum의 값의 유효성 확인 후 숫자로 변환
+		int startBoardNum = (numberPageNum-1)*boardCountInPage; // 선택된 페이지에  보여줄 글의 시작점
+		
+		List<BoardVO> boardList = mBoardService.boardList(startBoardNum, boardCountInPage); // PageNum에 해당하는 Board 보여줄 리스트 구하기 
 		model.addAttribute("boardList", boardList);
+		
+		int boardTotalCount = mBoardService.boardTotalCount(); // 페이징 처리 중, 존재 가능한 페이지 번호를 구하기 위한, 글의 Total Count 구하기
+		model.addAttribute("pageCount", Math.ceil(((double)boardTotalCount)/((double)boardCountInPage)));
+		
 		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
 		if(message != null)
 			model.addAttribute("message", message);
