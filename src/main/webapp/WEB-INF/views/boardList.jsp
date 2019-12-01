@@ -31,7 +31,6 @@
 					<td>${list.boardWriteTime}</td>
 				</tr>
 			</c:forEach>
-
 		</table>
 
 		<div style="position: relative">
@@ -43,6 +42,19 @@
 		</div>
 	</div>
 	
+	<div style="text-align:center;">
+		<br /><br /><br />
+		<h3>그냥 추가해 본, AWS S3에 이미지 파일 첨부하고 보여주기</h3>
+		<form action="/files/aws/upload" method="post" enctype="multipart/form-data">
+			<input required type="file" name="imgFile" id="imgFile" style="display:inline" />
+			<input type="submit" value="Upload Image" /> 
+		</form>
+	</div>
+	
+	<c:forEach var="img" items="${imgList}">
+		<img src="https://s3.ap-northeast-2.amazonaws.com/kbj.board.springboot/${img}" style="width:100px; height:100px;"/>
+	</c:forEach>
+	
 	<script type="text/javascript">
 		// 페이지 로딩 후, 현재 페이지 번호 스타일 변경 - 밑줄 + Bold
 		window.onload = function(){
@@ -52,6 +64,26 @@
 			
 			document.getElementById('pageNum'+pageNum).style.textDecoration = 'underline'
 			document.getElementById('pageNum'+pageNum).style.fontWeight = 'bold'
+		}
+
+		var imgFileTag = document.getElementById("imgFile"); 
+		imgFileTag.onchange = function(e){
+			// 선택된 파일 없으면 실행 X
+			if(imgFileTag.value == '')
+				return;
+
+			// 첨부하려는 Image가 1 Mb 이상이라면 초기화
+			if (imgFileTag.files[0].size > 1024 * 1024 * 1) {
+			 imgFileTag.value = "";
+			  alert("Image Size Needs to be Smaller than 1 Mb. ");
+			  return;
+			}
+
+			 //선택된 파일이 Image가 아니라면 초기화
+			 if (imgFileTag.files[0]["type"].split("/")[0] !== "image") {
+			   imgFileTag.value = "";
+			   alert("Only Image Allowed.");
+			 }
 		}
 	</script>
 

@@ -20,6 +20,14 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- AWS S3에 파일 첨부하기 위함 -->
+		<dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.11.469</version>
+        </dependency>
+	
 	    <!-- 파일 업로드시 중복 방지를 위한 Random String 생성 -->
         <dependency>
             <groupId>org.apache.commons</groupId>

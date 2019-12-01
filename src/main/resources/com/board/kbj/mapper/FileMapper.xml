@@ -37,4 +37,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			fileId = #{file.fileId}
 		</foreach>
 	</delete>
+	
+	<select id="imgFileList" resultType="string">
+		SELECT
+		savedFileName
+		FROM Files
+		WHERE 
+			Files.boardId = 0
+	</select>
 </mapper>

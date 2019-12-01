@@ -21,4 +21,7 @@ public interface FileMapper {
 
 	// 파일 목록 삭제
 	void fileDelete(List<FileVO> fileList) throws Exception;
+
+	// 단독으로 첨부된 이미지 파일 리스트 가져오기
+	List<String> imgFileList() throws Exception;
 }

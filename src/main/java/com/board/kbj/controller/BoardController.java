@@ -23,7 +23,6 @@ import com.board.kbj.domain.FileVO;
 import com.board.kbj.service.BoardService;
 import com.board.kbj.service.FileService;
 import com.board.kbj.utility.CommonUtility;
-import com.mysql.cj.util.StringUtils;
 
 @Controller
 public class BoardController {
@@ -52,6 +51,9 @@ public class BoardController {
 		
 		int boardTotalCount = mBoardService.boardTotalCount(); // 페이징 처리 중, 존재 가능한 페이지 번호를 구하기 위한, 글의 Total Count 구하기
 		model.addAttribute("pageCount", Math.ceil(((double)boardTotalCount)/((double)boardCountInPage)));
+		
+		List<String> imgList = mFileService.imgFileList(); // 단독으로 첨부된 이미지 파일 리스트 구하기 
+		model.addAttribute("imgList", imgList);
 		
 		// 로그인 및 무언가의 이유로 여기로 Redirect 될 때, 메세지가 있으면 같이 보내주자
 		if(message != null)

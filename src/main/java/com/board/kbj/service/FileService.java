@@ -30,5 +30,9 @@ public class FileService {
 	public void fileDelete(List<FileVO> fileList) throws Exception {
 		mFileMapper.fileDelete(fileList);
 	}
+
+	public List<String> imgFileList() throws Exception{
+		return mFileMapper.imgFileList();
+	}
 	
 }
